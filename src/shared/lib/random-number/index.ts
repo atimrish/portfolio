@@ -1,0 +1,1 @@
+export {randomNumber} from './randomNumber'
