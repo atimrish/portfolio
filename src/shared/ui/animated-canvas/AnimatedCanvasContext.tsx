@@ -1,6 +1,6 @@
 import {createContext, PropsWithChildren, ReactNode, useContext, useState} from "react";
 
-interface ICanvasContext {
+export interface ICanvasContext {
     canvas: HTMLCanvasElement;
     setCanvas: (canvas: HTMLCanvasElement) => void;
 }

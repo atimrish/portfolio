@@ -3,7 +3,7 @@ import {AnimatedCanvas} from "./AnimatedCanvas";
 
 const meta: Meta<typeof AnimatedCanvas> = {
     title: 'Компоненты/AnimatedCanvas',
-    component: AnimatedCanvas,
+    component: AnimatedCanvas
 }
 
 export default meta

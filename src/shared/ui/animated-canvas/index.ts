@@ -1,2 +1,2 @@
 export {AnimatedCanvas} from './AnimatedCanvas'
-export {AnimatedCanvasContext, useCanvasContext, CanvasConsumer} from './AnimatedCanvasContext'
+export {AnimatedCanvasContext, useCanvasContext, CanvasConsumer, ICanvasContext} from './AnimatedCanvasContext'

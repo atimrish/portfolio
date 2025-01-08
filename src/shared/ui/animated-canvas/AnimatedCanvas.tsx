@@ -1,6 +1,5 @@
 import {useEffect, useRef} from "react";
-import {randomNumber} from "@src/shared/lib/random-number";
-import {useCanvasContext} from "@src/shared/ui/animated-canvas/AnimatedCanvasContext";
+import {useCanvasContext} from "@src/shared/ui/animated-canvas";
 
 type Props = {
     width: number;
