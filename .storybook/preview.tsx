@@ -37,8 +37,11 @@ const preview: Preview = {
                     { value: 'dark', icon: 'circle', title: 'dark' },
                 ],
                 showName: true,
-            },
+            }
         },
+    },
+    initialGlobals: {
+        theme: 'light'
     }
 }
 
