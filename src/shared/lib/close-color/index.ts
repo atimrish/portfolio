@@ -1,0 +1,1 @@
+export {closeColor} from './closeColor'
