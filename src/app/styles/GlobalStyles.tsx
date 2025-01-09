@@ -66,9 +66,12 @@ export const GlobalWrap = createGlobalStyle<{theme: Theme}>`
     body {
         margin: 0;
         padding: 0;
-        box-sizing: border-box;
         font-family: 'PixelifySans', sans-serif;
         background-color: ${p => p.theme.bgColor};
+    }
+    
+    * {
+        box-sizing: border-box;
     }
 `
 
