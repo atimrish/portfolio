@@ -15,13 +15,18 @@ const preview: Preview = {
     decorators: [
         (Story, options) => {
             return (
-                <ThemeContext.Provider value={{
-                    theme: themes[options.globals.theme as keyof typeof themes],
-                    setTheme: () => {}
-                }}>
-                    <GlobalStyles/>
-                    <Story {...options} />
-                </ThemeContext.Provider>
+                <>
+                    <ThemeContext.Provider value={{
+                        theme: themes[options.globals.theme as keyof typeof themes],
+                        setTheme: () => {
+                        }
+                    }}>
+                        <GlobalStyles/>
+                        <Story {...options} />
+                    </ThemeContext.Provider>
+
+                    <div id="tooltip-portal"></div>
+                </>
             )
         }
 
@@ -33,8 +38,8 @@ const preview: Preview = {
             toolbar: {
                 icon: 'circlehollow',
                 items: [
-                    { value: 'light', icon: 'circlehollow', title: 'light' },
-                    { value: 'dark', icon: 'circle', title: 'dark' },
+                    {value: 'light', icon: 'circlehollow', title: 'light'},
+                    {value: 'dark', icon: 'circle', title: 'dark'},
                 ],
                 showName: true,
             }

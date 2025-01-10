@@ -73,6 +73,14 @@ export const GlobalWrap = createGlobalStyle<{theme: Theme}>`
     * {
         box-sizing: border-box;
     }
+    
+    #tooltip-portal {
+        position: absolute;
+        width: 0;
+        height: 0;
+        left: 0;
+        top: 0;
+    }
 `
 
 export const GlobalStyles = () => {
