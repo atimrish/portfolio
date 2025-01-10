@@ -1,8 +1,11 @@
-import darkCover from '@src/shared/ui/assets/images/light_cover.png'
-import lightCover from '@src/shared/ui/assets/images/dark_cover.png'
+import darkCover from '@src/shared/ui/assets/images/cover/dark.png'
+import lightCover from '@src/shared/ui/assets/images/cover/light.png'
 
-import linkIconLight from '@src/shared/ui/assets/images/preview_link_light.png'
-import linkIconDark from '@src/shared/ui/assets/images/preview_link_dark.png'
+import linkIconLight from '@src/shared/ui/assets/images/preview-link/light.png'
+import linkIconDark from '@src/shared/ui/assets/images/preview-link/dark.png'
+
+import searchIconLight from '@src/shared/ui/assets/images/search-icon/light.png'
+import searchIconDark from '@src/shared/ui/assets/images/search-icon/dark.png'
 
 export type Theme = {
     color: string,
@@ -10,6 +13,7 @@ export type Theme = {
     borderColor: string,
     imageCover: string,
     linkIcon: string,
+    searchIcon: string,
 }
 
 const light: Theme = {
@@ -18,6 +22,7 @@ const light: Theme = {
     borderColor: '#1A1919',
     imageCover: lightCover,
     linkIcon: linkIconLight,
+    searchIcon: searchIconLight,
 }
 
 const dark: Theme = {
@@ -26,6 +31,7 @@ const dark: Theme = {
     borderColor: '#FBFBFB',
     imageCover: darkCover,
     linkIcon: linkIconDark,
+    searchIcon: searchIconDark,
 }
 
 export const themes = {
