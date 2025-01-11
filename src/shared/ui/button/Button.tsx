@@ -1,11 +1,11 @@
 import {PropsWithChildren, useEffect, useRef, useState} from "react";
 import styled from "styled-components";
-import {AnimatedCanvas, AnimatedCanvasContext, CanvasConsumer, ICanvasContext} from "@src/shared/ui/animated-canvas";
+import {AnimatedCanvas} from "@src/shared/ui/animated-canvas";
 import {randomNumber} from "@src/shared/lib/random-number";
 import {useTheme} from '@src/app/providers/ThemeProvider';
 import {Theme} from "@src/app/providers/themes";
 
-const ButtonContainer = styled.button<{theme: Theme}>`
+const ButtonContainer = styled.button<{ theme: Theme }>`
     border: 4px solid ${p => p.theme.borderColor};
     background-color: ${p => p.theme.bgColor};
     cursor: pointer;
@@ -15,13 +15,13 @@ const ButtonContainer = styled.button<{theme: Theme}>`
     &:hover {
         transform: scale(1.5);
     }
-    
+
     @media screen and (min-width: 1024px) {
         border-width: 6px;
     }
 `
 
-const ChildrenContainer = styled.div<{theme: Theme}>`
+const ChildrenContainer = styled.div<{ theme: Theme }>`
     padding: 12px 18px;
     font-family: 'PixelifySans', sans-serif;
     font-size: 16px;
@@ -55,6 +55,7 @@ type Props = {}
 
 export const Button = (p: PropsWithChildren<Props>) => {
     const buttonRef = useRef<HTMLButtonElement>(null)
+    const canvasRef = useRef<HTMLCanvasElement>(null)
     const [bounds, setBounds] = useState<{
         width: number;
         height: number;
@@ -72,10 +73,10 @@ export const Button = (p: PropsWithChildren<Props>) => {
         }
     }, []);
 
-    const onMouseEnterHandler = (v: Partial<ICanvasContext>) => () => {
-        if (v.canvas) {
+    const onMouseEnterHandler = () => {
+        if (canvasRef.current) {
             const context =
-                v.canvas.getContext("2d") as CanvasRenderingContext2D;
+                canvasRef.current.getContext("2d") as CanvasRenderingContext2D;
 
             let [x, y] = [0, 0]
             const animate = () => {
@@ -95,10 +96,10 @@ export const Button = (p: PropsWithChildren<Props>) => {
         }
     }
 
-    const onMouseLeaveHandler = (v: Partial<ICanvasContext>) => () => {
-        if (v.canvas) {
+    const onMouseLeaveHandler = () => {
+        if (canvasRef.current) {
             const context =
-                v.canvas.getContext("2d") as CanvasRenderingContext2D;
+                canvasRef.current.getContext("2d") as CanvasRenderingContext2D;
 
             let [x, y] = [bounds.width, bounds.height]
             const animate = () => {
@@ -118,29 +119,21 @@ export const Button = (p: PropsWithChildren<Props>) => {
     }
 
     return (
-        <AnimatedCanvasContext>
-            <CanvasConsumer>
-                {
-                    (v) => (
-                        <ButtonContainer
-                            ref={buttonRef}
-                            onMouseEnter={onMouseEnterHandler(v)}
-                            onMouseLeave={onMouseLeaveHandler(v)}
-                            theme={theme}
-                        >
-                            <AbsoluteBlock>
-                                <AnimatedCanvas width={bounds.width} height={bounds.height}/>
-                            </AbsoluteBlock>
+        <ButtonContainer
+            ref={buttonRef}
+            onMouseEnter={onMouseEnterHandler}
+            onMouseLeave={onMouseLeaveHandler}
+            theme={theme}
+        >
+            <AbsoluteBlock>
+                <AnimatedCanvas
+                    width={bounds.width}
+                    height={bounds.height}
+                    ref={canvasRef}
+                />
+            </AbsoluteBlock>
 
-                            <ChildrenContainer
-                                theme={theme}
-                            >
-                                {p.children}
-                            </ChildrenContainer>
-                        </ButtonContainer>
-                    )
-                }
-            </CanvasConsumer>
-        </AnimatedCanvasContext>
+            <ChildrenContainer theme={theme}>{p.children}</ChildrenContainer>
+        </ButtonContainer>
     );
 };
