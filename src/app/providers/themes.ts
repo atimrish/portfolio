@@ -7,34 +7,46 @@ import linkIconDark from '@src/shared/ui/assets/images/preview-link/dark.png'
 import searchIconLight from '@src/shared/ui/assets/images/search-icon/light.png'
 import searchIconDark from '@src/shared/ui/assets/images/search-icon/dark.png'
 
-export type Theme = {
-    color: string,
-    bgColor: string,
-    borderColor: string,
-    imageCover: string,
-    linkIcon: string,
-    searchIcon: string,
-}
+import themeIconLight from '@src/shared/ui/assets/images/theme-icon/light.png'
+import themeIconDark from '@src/shared/ui/assets/images/theme-icon/dark.png'
 
 const light: Theme = {
+    name: 'light',
     color: '#1A1919',
     bgColor: '#FBFBFB',
     borderColor: '#1A1919',
     imageCover: lightCover,
     linkIcon: linkIconLight,
     searchIcon: searchIconLight,
+    themeIcon: themeIconLight,
 }
 
 const dark: Theme = {
+    name: 'dark',
     color: '#FBFBFB',
     bgColor: '#1A1919',
     borderColor: '#FBFBFB',
     imageCover: darkCover,
     linkIcon: linkIconDark,
     searchIcon: searchIconDark,
+    themeIcon: themeIconDark,
 }
+
 
 export const themes = {
     light,
     dark
 }
+
+export type Theme = {
+    name: keyof typeof themes,
+    color: string,
+    bgColor: string,
+    borderColor: string,
+    imageCover: string,
+    linkIcon: string,
+    searchIcon: string,
+    themeIcon: string,
+}
+
+

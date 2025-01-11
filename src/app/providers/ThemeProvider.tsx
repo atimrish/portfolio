@@ -9,7 +9,7 @@ interface IThemeContext {
 }
 
 export const ThemeContext = createContext<IThemeContext>({
-    theme: {bgColor: '', borderColor: '', color: ''},
+    theme: themes['light'],
     setTheme: () => {}
 })
 
