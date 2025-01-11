@@ -1,8 +1,9 @@
-import {CanvasImage, CanvasImageConsumer, CanvasImageProvider} from "@src/shared/ui/canvas-image";
+import {CanvasImage, CanvasImageRef} from "@src/shared/ui/canvas-image";
 import styled from "styled-components";
 import {useTheme} from "@src/app/providers/ThemeProvider";
 import {randomNumber} from "@src/shared/lib/random-number";
 import {closeColor} from "@src/shared/lib/close-color";
+import {useRef} from "react";
 
 const Container = styled.div`
     width: 128px;
@@ -40,12 +41,13 @@ export const PixelizedImage = (p: Props) => {
     const delimiter = 16
     const width = 72
     const pixelSize = width / delimiter
+    const ref = useRef<CanvasImageRef>(null)
 
-    const mouseEnterHandler = (canvas?: HTMLCanvasElement, bgCanvas?: HTMLCanvasElement) => () => {
+    const mouseEnterHandler = () => {
         isHover = true
-        if (canvas && bgCanvas) {
-            const context = canvas.getContext("2d") as CanvasRenderingContext2D;
-            const bgContext = bgCanvas.getContext("2d") as CanvasRenderingContext2D;
+        if (ref.current && ref.current.canvas && ref.current.bgCanvas) {
+            const context = ref.current.canvas.getContext("2d") as CanvasRenderingContext2D;
+            const bgContext = ref.current.bgCanvas.getContext("2d") as CanvasRenderingContext2D;
             const animate = () => {
                 const [x, y] = [randomNumber(0, delimiter) * pixelSize, randomNumber(0, delimiter) * pixelSize];
                 const {data} = bgContext.getImageData(x, y, 1, 1)
@@ -61,10 +63,10 @@ export const PixelizedImage = (p: Props) => {
         }
     }
 
-    const mouseLeaveHandler = (canvas?: HTMLCanvasElement) => () => {
+    const mouseLeaveHandler = () => {
         isHover = false
-        if (canvas) {
-            const context = canvas.getContext("2d") as CanvasRenderingContext2D;
+        if (ref.current && ref.current.canvas) {
+            const context = ref.current.canvas.getContext("2d") as CanvasRenderingContext2D;
             let [x, y] = [0, 0]
             const animate = () => {
                 if (x < width) {
@@ -77,32 +79,24 @@ export const PixelizedImage = (p: Props) => {
                     requestAnimationFrame(animate)
                 }
             }
-
             requestAnimationFrame(animate)
         }
     }
 
     return (
-        <CanvasImageProvider>
-            <CanvasImageConsumer>
-                {
-                    (v) => {
-                        return (
-                            <Container
-                                onMouseEnter={mouseEnterHandler(v.value.canvas, v.value.backgroundCanvas)}
-                                onMouseLeave={mouseLeaveHandler(v.value.canvas)}
-                            >
-                                <Background src={theme.imageCover}/>
-                                <CanvasImage
-                                    width={width}
-                                    height={width}
-                                    imageSource={p.imageSource}
-                                />
-                            </Container>
-                        )
-                    }
-                }
-            </CanvasImageConsumer>
-        </CanvasImageProvider>
+
+        <Container
+            onMouseEnter={mouseEnterHandler}
+            onMouseLeave={mouseLeaveHandler}
+        >
+            <Background src={theme.imageCover}/>
+            <CanvasImage
+                ref={ref}
+                width={width}
+                height={width}
+                imageSource={p.imageSource}
+            />
+        </Container>
+
     );
 };

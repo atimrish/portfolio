@@ -1,6 +1,5 @@
-import {useEffect, useRef} from "react";
+import {forwardRef, useEffect, useImperativeHandle, useRef} from "react";
 import styled from "styled-components";
-import {useCanvasImage} from "@src/shared/ui/canvas-image/CanvasImageProvider";
 
 const Container = styled.div`
     position: relative;
@@ -18,41 +17,43 @@ type Props = {
     imageSource: string
 }
 
-export const CanvasImage = (p: Props) => {
-    const backgroundRef = useRef<HTMLCanvasElement>(null);
-    const canvasRef = useRef<HTMLCanvasElement>(null);
+export type CanvasImageRef = {
+    canvas: HTMLCanvasElement | null,
+    bgCanvas: HTMLCanvasElement | null
+}
 
-    const {setValue} = useCanvasImage()
+export const CanvasImage = forwardRef<CanvasImageRef, Props>(
+    (p, ref) => {
+        const canvasRef = useRef<HTMLCanvasElement>(null)
+        const bgCanvasRef = useRef<HTMLCanvasElement>(null)
 
-    useEffect(() => {
-        if (canvasRef.current && backgroundRef.current) {
+        useImperativeHandle(ref, () => ({
+            canvas: canvasRef.current,
+            bgCanvas: bgCanvasRef.current
+        }))
 
-            if (setValue) {
-                setValue({
-                    canvas: canvasRef.current,
-                    backgroundCanvas: backgroundRef.current
-                })
+        useEffect(() => {
+            if (bgCanvasRef.current) {
+                const bgContext = bgCanvasRef.current.getContext("2d") as CanvasRenderingContext2D;
+                const image = new Image();
+                image.src = p.imageSource
+                image.onload = () => bgContext.drawImage(image, 0, 0, p.width, p.height)
             }
+        }, []);
 
-            const backgroundContext = backgroundRef.current.getContext("2d") as CanvasRenderingContext2D;
-            const image = new Image();
-            image.src = p.imageSource
-            image.onload = () => backgroundContext.drawImage(image, 0, 0, p.width, p.height)
-        }
-    }, []);
-
-    return (
-        <Container>
-            <Canvas
-                width={p.width}
-                height={p.height}
-                ref={canvasRef}
-            />
-            <canvas
-                ref={backgroundRef}
-                width={p.width}
-                height={p.height}
-            />
-        </Container>
-    );
-};
+        return (
+            <Container>
+                <Canvas
+                    width={p.width}
+                    height={p.height}
+                    ref={canvasRef}
+                />
+                <canvas
+                    ref={bgCanvasRef}
+                    width={p.width}
+                    height={p.height}
+                />
+            </Container>
+        )
+    }
+)

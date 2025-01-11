@@ -1,2 +1,1 @@
-export {CanvasImage} from './CanvasImage'
-export {CanvasImageProvider, useCanvasImage, CanvasImageConsumer} from  './CanvasImageProvider'
+export {CanvasImage, CanvasImageRef} from './CanvasImage'
