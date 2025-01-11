@@ -1,7 +1,7 @@
 import styled, {css} from "styled-components";
 import {Theme} from "@src/app/providers/themes";
 import {useTheme} from "@src/app/providers/ThemeProvider";
-import {PropsWithChildren} from "react";
+import {AnchorHTMLAttributes, PropsWithChildren} from "react";
 
 type ProvidedStyles = ReturnType<typeof css>
 
@@ -48,8 +48,21 @@ const Paragraph = (p: TypographyProps) => {
     return <StyledParagraph theme={theme} css={p.css}>{p.children}</StyledParagraph>
 }
 
+const StyledLink = styled.a<StyledTypographyProps>`
+    color: ${p => p.theme.color};
+    font-size: clamp(14px, 4.4vw, 24px);
+    text-decoration: none;
+    ${p => p.css && p.css}
+`
+
+const Link = (p: TypographyProps & AnchorHTMLAttributes<HTMLAnchorElement>) => {
+    const {theme} = useTheme();
+    return <StyledLink theme={theme} {...p} >{p.children}</StyledLink>
+}
+
 export const Typography = {
     Heading,
     Text,
-    Paragraph
+    Paragraph,
+    Link
 }
