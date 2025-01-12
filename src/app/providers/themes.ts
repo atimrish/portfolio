@@ -16,6 +16,12 @@ import educationIconDark from '@src/shared/ui/assets/images/education-icon/dark.
 import awardIconLight from '@src/shared/ui/assets/images/award-icon/light.png'
 import awardIconDark from '@src/shared/ui/assets/images/award-icon/dark.png'
 
+import footerBackLight from '@src/shared/ui/assets/images/footer-back/light.png'
+import footerBackDark from '@src/shared/ui/assets/images/footer-back/dark.png'
+
+import copyrightIconLight from '@src/shared/ui/assets/images/copyright-icon/light.png'
+import copyrightIconDark from '@src/shared/ui/assets/images/copyright-icon/dark.png'
+
 const light: Theme = {
     name: 'light',
     color: '#1A1919',
@@ -26,7 +32,9 @@ const light: Theme = {
     searchIcon: searchIconLight,
     themeIcon: themeIconLight,
     educationIcon: educationIconLight,
-    awardIcon: awardIconLight
+    awardIcon: awardIconLight,
+    footerBack: footerBackLight,
+    copyrightIcon: copyrightIconLight,
 }
 
 const dark: Theme = {
@@ -39,7 +47,9 @@ const dark: Theme = {
     searchIcon: searchIconDark,
     themeIcon: themeIconDark,
     educationIcon: educationIconDark,
-    awardIcon: awardIconDark
+    awardIcon: awardIconDark,
+    footerBack: footerBackDark,
+    copyrightIcon: copyrightIconDark,
 }
 
 
@@ -59,6 +69,8 @@ export type Theme = {
     themeIcon: string,
     educationIcon: string,
     awardIcon: string,
+    footerBack: string,
+    copyrightIcon: string,
 }
 
 
