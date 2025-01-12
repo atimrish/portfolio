@@ -10,10 +10,10 @@ const ButtonContainer = styled.button<{ theme: Theme }>`
     background-color: ${p => p.theme.bgColor};
     cursor: pointer;
     position: relative;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
 
     &:hover {
-        transform: scale(1.5);
+        transform: scale(1.2);
     }
 
     @media screen and (min-width: 1024px) {

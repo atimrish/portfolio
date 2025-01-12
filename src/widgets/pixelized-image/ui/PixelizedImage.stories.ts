@@ -1,6 +1,6 @@
 import {PixelizedImage} from './PixelizedImage'
 import {Meta, StoryObj} from "@storybook/react"
-import imageSrc from '@src/shared/ui/assets/images/webpack.png'
+import imageSrc from '@src/shared/ui/assets/images/techs/webpack.png'
 
 const meta: Meta<typeof PixelizedImage> = {
     title: 'Компоненты/PixelizedImage',

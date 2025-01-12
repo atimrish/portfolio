@@ -1,8 +1,8 @@
 import {ProjectCard} from './ProjectCard'
 import {Meta, StoryObj} from "@storybook/react"
-import TechSrc from '@src/shared/ui/assets/images/react.png'
-import TechSrc2 from '@src/shared/ui/assets/images/typescript.png'
-import CoverImage from '@src/shared/ui/assets/images/react.png'
+import TechSrc from '@src/shared/ui/assets/images/techs/react.png'
+import TechSrc2 from '@src/shared/ui/assets/images/techs/typescript.png'
+import CoverImage from '@src/shared/ui/assets/images/techs/react.png'
 
 const meta: Meta<typeof ProjectCard> = {
     title: 'Компоненты/ProjectCard',

@@ -21,6 +21,7 @@ const RenderTooltip = styled.div<{theme: Theme, $left: number, $top: number}>`
     left: ${p => p.$left}px;
     top: ${p => p.$top}px;
     animation: ${showAnimation} 0.3s forwards ease;
+    background-color: ${p => p.theme.bgColor};
 `
 
 export type TooltipActiveProps = {

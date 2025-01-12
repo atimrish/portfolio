@@ -2,8 +2,8 @@ import {WorkCard} from './WorkCard'
 import {Meta, StoryObj} from "@storybook/react"
 import {Typography} from "@src/shared/ui/typography";
 
-import ReactIcon from '@src/shared/ui/assets/images/react.png'
-import ExpressIcon from '@src/shared/ui/assets/images/express.png'
+import ReactIcon from '@src/shared/ui/assets/images/techs/react.png'
+import ExpressIcon from '@src/shared/ui/assets/images/techs/express.png'
 
 const meta: Meta<typeof WorkCard> = {
     title: 'Компоненты/WorkCard',

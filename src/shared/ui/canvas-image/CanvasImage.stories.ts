@@ -1,6 +1,6 @@
 import {CanvasImage} from './CanvasImage'
 import {Meta, StoryObj} from "@storybook/react"
-import imageSrc from '@src/shared/ui/assets/images/javascript.png'
+import imageSrc from '@src/shared/ui/assets/images/techs/javascript.png'
 
 const meta: Meta<typeof CanvasImage> = {
     title: 'Компоненты/CanvasImage',
