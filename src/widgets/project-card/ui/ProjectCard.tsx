@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import {Theme} from "@src/app/providers/themes";
 import {useTheme} from "@src/app/providers/ThemeProvider";
-import githubImage from "@src/shared/ui/assets/images/techs/github.png"
+import githubImage from "@src/shared/ui/assets/images/contacts/github.png"
 
 const Container = styled.div<{theme: Theme}>`
     padding: clamp(14px, 4vw, 36px);
