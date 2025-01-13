@@ -8,9 +8,14 @@ const Container = styled.div<{ theme: Theme }>`
     width: clamp(292px, 91.25vw, 542px);
     padding: clamp(14px, 4.375vw, 25px);
     border: 6px solid ${props => props.theme.borderColor};
+    transition: all 0.3s ease;
 
     @media screen and (max-width: 560px) {
         border-width: 4px;
+    }
+    
+    &:hover {
+        transform: scale(1.01);
     }
 `
 
