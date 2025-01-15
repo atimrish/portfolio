@@ -1,7 +1,7 @@
 import styled, {css} from "styled-components";
 import {Theme} from "@src/app/providers/themes";
 import {useTheme} from "@src/app/providers/ThemeProvider";
-import {AnchorHTMLAttributes, PropsWithChildren} from "react";
+import {AnchorHTMLAttributes, BaseHTMLAttributes, PropsWithChildren} from "react";
 
 type ProvidedStyles = ReturnType<typeof css>
 
@@ -21,9 +21,9 @@ const StyledHeading = styled.h2<StyledTypographyProps>`
     ${p => p.css && p.css}
 `
 
-const Heading = (p: TypographyProps) => {
+const Heading = (p: TypographyProps & BaseHTMLAttributes<HTMLHeadingElement>) => {
     const {theme} = useTheme();
-    return <StyledHeading theme={theme} css={p.css}>{p.children}</StyledHeading>
+    return <StyledHeading theme={theme} {...p} >{p.children}</StyledHeading>
 }
 
 const StyledText = styled.div<StyledTypographyProps>`

@@ -16,7 +16,7 @@ export const Tooltip = (p: PropsWithChildren<Props>) => {
     useEffect(() => {
         if (containerRef.current && active) {
             const {bottom, left, width} = containerRef.current.getBoundingClientRect()
-            setBounds({top: bottom + 20, left: left + width / 2})
+            setBounds({top: window.scrollY + bottom + 20, left: left + width / 2})
         }
     }, [active]);
 
@@ -27,7 +27,6 @@ export const Tooltip = (p: PropsWithChildren<Props>) => {
             onMouseLeave={() => setActive(false)}
         >
             {p.children}
-
             <TooltipActive text={p.text} active={active} left={bounds.left} top={bounds.top} />
         </span>
     )

@@ -1,0 +1,1 @@
+export {randomRGB} from "./randomRGB";

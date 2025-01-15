@@ -8,7 +8,6 @@ import {Theme} from "@src/app/providers/themes";
 const ButtonContainer = styled.button<{ theme: Theme }>`
     border: 4px solid ${p => p.theme.borderColor};
     background-color: ${p => p.theme.bgColor};
-    cursor: pointer;
     position: relative;
     transition: all 0.5s ease;
 
@@ -30,6 +29,13 @@ const ChildrenContainer = styled.div<{ theme: Theme }>`
     position: relative;
     filter: invert(1);
     mix-blend-mode: difference;
+
+    &::selection {
+        background: transparent;
+    }
+    &::-moz-selection {
+        background: transparent;
+    }
 
     @media screen and (min-width: 1024px) {
         font-size: 36px;

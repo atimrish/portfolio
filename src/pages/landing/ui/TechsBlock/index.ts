@@ -1,0 +1,1 @@
+export {TechsBlock} from './TechsBlock'

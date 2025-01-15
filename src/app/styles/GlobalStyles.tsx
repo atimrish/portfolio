@@ -68,18 +68,27 @@ export const GlobalWrap = createGlobalStyle<{theme: Theme}>`
         padding: 0;
         font-family: 'PixelifySans', sans-serif;
         background-color: ${p => p.theme.bgColor};
+        overflow-x: hidden;
     }
     
     * {
         box-sizing: border-box;
+        cursor: none;
+        transition: 0.3s color ease, 0.3s background-color ease, 0.3s border-color ease;
     }
     
     #tooltip-portal {
         position: absolute;
         width: 0;
         height: 0;
-        left: 0;
-        top: 0;
+        left: 0!important;
+        top: 0!important;
+    }
+    
+    @media screen and (max-width: 560px) {
+        * {
+            cursor: auto;
+        }
     }
 `
 

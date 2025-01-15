@@ -91,7 +91,7 @@ export const WorkCard = (p: Props) => {
             </DescriptionBlock>
 
             <TechBlock>
-                {p.techsImageSources.map(i => <TechImage src={i} alt=""/>)}
+                {p.techsImageSources.map(i => <TechImage key={i} src={i} alt=""/>)}
             </TechBlock>
         </Container>
     );

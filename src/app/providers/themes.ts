@@ -22,6 +22,9 @@ import footerBackDark from '@src/shared/ui/assets/images/footer-back/dark.png'
 import copyrightIconLight from '@src/shared/ui/assets/images/copyright-icon/light.png'
 import copyrightIconDark from '@src/shared/ui/assets/images/copyright-icon/dark.png'
 
+import CareerWayIconLight from '@src/shared/ui/assets/images/careerway/light.png'
+import CareerWayIconDark from '@src/shared/ui/assets/images/careerway/dark.png'
+
 const light: Theme = {
     name: 'light',
     color: '#1A1919',
@@ -35,6 +38,7 @@ const light: Theme = {
     awardIcon: awardIconLight,
     footerBack: footerBackLight,
     copyrightIcon: copyrightIconLight,
+    careerWayIcon: CareerWayIconLight
 }
 
 const dark: Theme = {
@@ -50,6 +54,7 @@ const dark: Theme = {
     awardIcon: awardIconDark,
     footerBack: footerBackDark,
     copyrightIcon: copyrightIconDark,
+    careerWayIcon: CareerWayIconDark
 }
 
 
@@ -71,6 +76,7 @@ export type Theme = {
     awardIcon: string,
     footerBack: string,
     copyrightIcon: string,
+    careerWayIcon: string,
 }
 
 

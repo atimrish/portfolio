@@ -48,7 +48,6 @@ const SearchIcon = styled.img`
     aspect-ratio: 1;
     object-fit: contain;
     object-position: center;
-    cursor: pointer;
 `
 
 type Props = {

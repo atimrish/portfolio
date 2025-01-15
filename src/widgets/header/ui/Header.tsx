@@ -13,7 +13,6 @@ const Container = styled.div`
 const LogoStyles = css`
     font-size: clamp(36px, 11.25vw, 48px);
     font-weight: 400;
-    cursor: pointer;
 `
 
 const RightContainer = styled.div`
@@ -37,6 +36,14 @@ const ThemeIcon = styled.img`
 
 const LinkStyles = css`
     font-size: clamp(16px, 2vw, 24px);
+
+    &::selection {
+        background: transparent;
+    }
+
+    &::-moz-selection {
+        background: transparent;
+    }
 `
 
 const ThemeButton = styled.button`
@@ -44,11 +51,29 @@ const ThemeButton = styled.button`
     border: none;
     padding: 0;
     margin: 0;
-    cursor: pointer;
 `
 
 export const Header = () => {
     const {theme, setTheme} = useTheme()
+
+    const links: Array<{ href: string, title: string }> = [
+        {
+            title: 'обо мне',
+            href: '#about',
+        },
+        {
+            title: 'технологии',
+            href: '#techs',
+        },
+        {
+            title: 'проекты',
+            href: '#projects',
+        },
+        {
+            title: 'контакты',
+            href: '#contact',
+        },
+    ]
 
     return (
         <Container>
@@ -58,16 +83,23 @@ export const Header = () => {
             >AT</Typography.Link>
 
             <RightContainer>
-                <Typography.Link href="#about" css={LinkStyles}>обо мне</Typography.Link>
-                <Typography.Link href="#techs" css={LinkStyles}>технологии</Typography.Link>
-                <Typography.Link href="#projects" css={LinkStyles}>проекты</Typography.Link>
-                <Typography.Link href="#contact" css={LinkStyles}>контакты</Typography.Link>
-
+                {
+                    links.map(i =>
+                        <Typography.Link
+                            href={i.href}
+                            css={LinkStyles}
+                            key={i.href}
+                            onClick={(e) => {
+                                e.preventDefault()
+                                document.querySelector(i.href)?.scrollIntoView({behavior: 'smooth'})
+                            }}
+                        >{i.title}</Typography.Link>)
+                }
                 <Tooltip text="сменить тему">
                     <ThemeButton
                         onClick={() => setTheme(theme.name === 'light' ? 'dark' : 'light')}
                     >
-                        <ThemeIcon src={theme.themeIcon} alt="" />
+                        <ThemeIcon src={theme.themeIcon} alt=""/>
                     </ThemeButton>
                 </Tooltip>
             </RightContainer>

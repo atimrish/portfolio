@@ -2,13 +2,14 @@ import styled from "styled-components";
 import {Theme} from "@src/app/providers/themes";
 import {useTheme} from "@src/app/providers/ThemeProvider";
 import githubImage from "@src/shared/ui/assets/images/contacts/github.png"
+import {Tooltip} from "@src/shared/ui/tooltip";
 
-const Container = styled.div<{theme: Theme}>`
+const Container = styled.div<{ theme: Theme }>`
     padding: clamp(14px, 4vw, 36px);
     border: 6px solid ${p => p.theme.borderColor};
     background-color: ${p => p.theme.bgColor};
     width: clamp(292px, 70vw, 413px);
-    
+
     @media screen and (max-width: 560px) {
         border-width: 4px;
     }
@@ -18,10 +19,12 @@ const Image = styled.img`
     width: 100%;
     aspect-ratio: 1;
     background-color: transparent;
-    
+    object-fit: cover;
+    object-position: center;
+
 `
 
-const Heading = styled.h3<{theme: Theme}>`
+const Heading = styled.h3<{ theme: Theme }>`
     font-size: 24px;
     font-weight: 600;
     margin: 19px 0;
@@ -32,7 +35,7 @@ const Heading = styled.h3<{theme: Theme}>`
     }
 `
 
-const Description = styled.p<{theme: Theme}>`
+const Description = styled.p<{ theme: Theme }>`
     font-size: 16px;
     font-weight: 400;
     color: ${p => p.theme.color};
@@ -48,7 +51,7 @@ const TechContainer = styled.div`
     margin: 24px 0;
 `
 
-const TechBlock = styled.div<{theme: Theme}>`
+const TechBlock = styled.div<{ theme: Theme }>`
     padding: 8px;
     border: 1px solid ${p => p.theme.borderColor};
 `
@@ -71,7 +74,7 @@ const LinkBlock = styled.a`
     display: block;
 `
 
-const LinkImage = styled.img<{$size: number}>`
+const LinkImage = styled.img<{ $size: number }>`
     width: ${p => p.$size}px;
     height: ${p => p.$size}px;
     object-fit: contain;
@@ -89,7 +92,7 @@ type Props = {
 }
 
 export const ProjectCard = (p: Props) => {
-     const {theme} = useTheme()
+    const {theme} = useTheme()
 
     return (
         <Container theme={theme}>
@@ -98,18 +101,28 @@ export const ProjectCard = (p: Props) => {
             <Description theme={theme}>{p.description}</Description>
 
             <TechContainer>
-                {p.techImageSources.map(i => <TechBlock theme={theme}>
-                    <TechImage src={i} alt="" />
-                </TechBlock>)}
+                {
+                    p.techImageSources.map(i =>
+                        <TechBlock
+                            theme={theme}
+                            key={i}
+                        >
+                            <TechImage src={i} alt=""/>
+                        </TechBlock>)
+                }
             </TechContainer>
 
             <LinksBlock>
                 {p.previewLink && <LinkBlock href={p.previewLink}>
-                    <LinkImage $size={32} src={theme.linkIcon} />
+                    <Tooltip text="Ссылка на сайт">
+                        <LinkImage $size={32} src={theme.linkIcon}/>
+                    </Tooltip>
                 </LinkBlock>}
 
                 {p.githubLink && <LinkBlock href={p.githubLink}>
-                    <LinkImage $size={48} src={githubImage} />
+                    <Tooltip text="Ссылка на репозиторий GitHub">
+                        <LinkImage $size={48} src={githubImage}/>
+                    </Tooltip>
                 </LinkBlock>}
             </LinksBlock>
         </Container>
