@@ -37,7 +37,6 @@ export const ProjectBlock = () => {
     return (
         <>
             <Typography.Heading id="projects" css={HeadingCss}>#проекты</Typography.Heading>
-            <SearchInput value={query} setValue={setQuery}/>
 
             <ProjectList>
                 <ProjectCard

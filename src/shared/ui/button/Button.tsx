@@ -82,7 +82,7 @@ export const Button = (p: PropsWithChildren<Props>) => {
     const onMouseEnterHandler = () => {
         if (canvasRef.current) {
             const context =
-                canvasRef.current.getContext("2d") as CanvasRenderingContext2D;
+                canvasRef.current.getContext("2d", {willReadFrequently: true}) as CanvasRenderingContext2D;
 
             let [x, y] = [0, 0]
             const animate = () => {
@@ -105,7 +105,7 @@ export const Button = (p: PropsWithChildren<Props>) => {
     const onMouseLeaveHandler = () => {
         if (canvasRef.current) {
             const context =
-                canvasRef.current.getContext("2d") as CanvasRenderingContext2D;
+                canvasRef.current.getContext("2d", {willReadFrequently: true}) as CanvasRenderingContext2D;
 
             let [x, y] = [bounds.width, bounds.height]
             const animate = () => {

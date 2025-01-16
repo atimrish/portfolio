@@ -95,7 +95,7 @@ export const MouseEffectBlock = () => {
             height={height}
             ref={(canvas) => {
                 if (canvas) {
-                    ctx = canvas.getContext("2d") as CanvasRenderingContext2D
+                    ctx = canvas.getContext("2d", {willReadFrequently: true}) as CanvasRenderingContext2D
                 }
             }}
         />

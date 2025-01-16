@@ -46,8 +46,14 @@ export const PixelizedImage = (p: Props) => {
     const mouseEnterHandler = () => {
         isHover = true
         if (ref.current && ref.current.canvas && ref.current.bgCanvas) {
-            const context = ref.current.canvas.getContext("2d") as CanvasRenderingContext2D;
-            const bgContext = ref.current.bgCanvas.getContext("2d") as CanvasRenderingContext2D;
+            const context = ref.current.canvas.getContext("2d", {
+                willReadFrequently: true
+            }) as CanvasRenderingContext2D;
+
+            const bgContext = ref.current.bgCanvas.getContext("2d", {
+                willReadFrequently: true
+            }) as CanvasRenderingContext2D;
+
             const animate = () => {
                 const [x, y] = [randomNumber(0, delimiter) * pixelSize, randomNumber(0, delimiter) * pixelSize];
                 const {data} = bgContext.getImageData(x, y, 1, 1)
@@ -66,7 +72,10 @@ export const PixelizedImage = (p: Props) => {
     const mouseLeaveHandler = () => {
         isHover = false
         if (ref.current && ref.current.canvas) {
-            const context = ref.current.canvas.getContext("2d") as CanvasRenderingContext2D;
+            const context = ref.current.canvas.getContext("2d", {
+                willReadFrequently: true
+            }) as CanvasRenderingContext2D;
+
             let [x, y] = [0, 0]
             const animate = () => {
                 if (x < width) {

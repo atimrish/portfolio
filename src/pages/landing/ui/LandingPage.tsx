@@ -94,8 +94,7 @@ export const LandingPage = () => {
     useEffect(() => {
         const cursorMove = (e: MouseEvent) => {
             if (cursorRef.current) {
-                cursorRef.current.style.transform =
-                    `translate(${e.clientX - 8}px, ${e.clientY - 8}px)`
+                cursorRef.current.style.transform = `translate(${e.clientX - 8}px, ${e.clientY - 8}px)`
             }
         }
         document.body.addEventListener('mousemove', cursorMove)

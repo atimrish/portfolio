@@ -9,9 +9,14 @@ const Container = styled.div<{ theme: Theme }>`
     border: 6px solid ${p => p.theme.borderColor};
     background-color: ${p => p.theme.bgColor};
     width: clamp(292px, 70vw, 413px);
+    transition: transform 0.3s ease;
 
     @media screen and (max-width: 560px) {
         border-width: 4px;
+    }
+    
+    &:hover {
+        transform: scale(1.01);
     }
 `
 

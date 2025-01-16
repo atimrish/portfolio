@@ -34,7 +34,9 @@ export const CanvasImage = forwardRef<CanvasImageRef, Props>(
 
         useEffect(() => {
             if (bgCanvasRef.current) {
-                const bgContext = bgCanvasRef.current.getContext("2d") as CanvasRenderingContext2D;
+                const bgContext = bgCanvasRef.current.getContext("2d", {
+                    willReadFrequently: true
+                }) as CanvasRenderingContext2D;
                 const image = new Image();
                 image.src = p.imageSource
                 image.onload = () => bgContext.drawImage(image, 0, 0, p.width, p.height)
