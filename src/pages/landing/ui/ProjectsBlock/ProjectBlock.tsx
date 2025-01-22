@@ -45,7 +45,7 @@ export const ProjectBlock = () => {
                     techImageSources={[ReactImage, ReduxImage, TSImage]}
                     projectCover={Wordle}
                     githubLink={'https://github.com/atimrish/wordle'}
-                    previewLink={'https://atimrish.github.io/wordle/'}
+                    previewLink={'https://atimrish.github.io/wordle'}
                 />
                 <ProjectCard
                     heading={'2048'}
@@ -53,6 +53,7 @@ export const ProjectBlock = () => {
                     techImageSources={[ReactImage, TSImage]}
                     projectCover={Game2048}
                     githubLink={'https://github.com/atimrish/2048'}
+                    previewLink={'https://atimrish.github.io/2048'}
                 />
                 <ProjectCard
                     heading={'Crystals landing'}
