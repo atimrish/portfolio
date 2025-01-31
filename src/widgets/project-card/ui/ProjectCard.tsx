@@ -3,6 +3,7 @@ import {Theme} from "@src/app/providers/themes";
 import {useTheme} from "@src/app/providers/ThemeProvider";
 import githubImage from "@src/shared/ui/assets/images/contacts/github.png"
 import {Tooltip} from "@src/shared/ui/tooltip";
+import {ReactNode} from "react";
 
 const Container = styled.div<{ theme: Theme }>`
     padding: clamp(14px, 4vw, 36px);
@@ -10,9 +11,12 @@ const Container = styled.div<{ theme: Theme }>`
     background-color: ${p => p.theme.bgColor};
     width: clamp(292px, 70vw, 413px);
     transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
 
     @media screen and (max-width: 560px) {
         border-width: 4px;
+        width: 100%;
     }
     
     &:hover {
@@ -40,10 +44,11 @@ const Heading = styled.h3<{ theme: Theme }>`
     }
 `
 
-const Description = styled.p<{ theme: Theme }>`
+const Description = styled.div<{ theme: Theme }>`
     font-size: 16px;
     font-weight: 400;
     color: ${p => p.theme.color};
+    margin-bottom: 24px;
 
     @media screen and (max-width: 560px) {
         font-size: 14px;
@@ -53,7 +58,8 @@ const Description = styled.p<{ theme: Theme }>`
 const TechContainer = styled.div`
     display: flex;
     gap: clamp(6px, 1.8vw, 18px);
-    margin: 24px 0;
+    margin-top: auto;
+    margin-bottom: 24px;
 `
 
 const TechBlock = styled.div<{ theme: Theme }>`
@@ -88,7 +94,7 @@ const LinkImage = styled.img<{ $size: number }>`
 
 type Props = {
     heading: string,
-    description: string,
+    description: string | (() => ReactNode),
     techImageSources: string[],
     projectCover: string,
 
@@ -103,7 +109,9 @@ export const ProjectCard = (p: Props) => {
         <Container theme={theme}>
             <Image src={p.projectCover} alt=""/>
             <Heading theme={theme}>{p.heading}</Heading>
-            <Description theme={theme}>{p.description}</Description>
+            <Description theme={theme}>
+                {typeof p.description === 'string' ? p.description : p.description()}
+            </Description>
 
             <TechContainer>
                 {

@@ -11,7 +11,7 @@ const Container = styled.div`
     justify-content: space-around;
     flex-wrap: wrap;
     gap: 50px;
-    padding: 74px 0;
+    padding: 74px 0 174px 0;
     
     @media screen and (max-width: 560px) {
         padding: 0 0 74px 0;

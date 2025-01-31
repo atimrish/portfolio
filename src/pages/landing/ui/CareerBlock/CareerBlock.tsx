@@ -13,6 +13,7 @@ import MongoIcon from "@src/shared/ui/assets/images/techs/mongo.png";
 import JavaScriptIcon from "@src/shared/ui/assets/images/techs/javascript.png";
 import {useTheme} from "@src/app/providers/ThemeProvider";
 import styled, {css} from "styled-components";
+import {Theme} from "@src/app/providers/themes";
 
 const CareerWayStyles = css`
     font-weight: 500;
@@ -39,8 +40,8 @@ const CareerWayImage = styled.img`
 const CareerContainer = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 40px;  
-    
+    gap: 40px;
+
     & > *:nth-child(odd) {
         align-self: start;
     }
@@ -48,10 +49,33 @@ const CareerContainer = styled.div`
     & > *:nth-child(even) {
         align-self: end;
     }
-    
+
     & > * {
         flex-shrink: 0;
     }
+`
+
+const MarginCss = css`
+    margin: 24px 0;
+    display: block;
+`
+
+const List = styled.ul<{ theme: Theme }>`
+    list-style: square;
+    padding: 0 0 0 20px;
+
+    & li::marker {
+        color: ${p => p.theme.color};
+    }
+`
+
+const ListTitleCss = css`
+    margin: 16px 0;
+`
+
+const BoldCss = css`
+    font-size: 28px;
+    margin-bottom: 24px;
 `
 
 export const CareerBlock = () => {
@@ -71,7 +95,29 @@ export const CareerBlock = () => {
                     month={'август'}
                     job={'Freelance'}
                     techsImageSources={[ReactIcon, TypeScriptIcon, ExpressIcon, NodeJSIcon, DockerIcon, PostgresIcon]}
-                    renderDescription={() => <Typography.Paragraph>Тут будет описание</Typography.Paragraph>}
+                    renderDescription={() => (
+                        <>
+                            <Typography.Text>
+                                Полностью создал сайт от разработки до деплоя - онлайн магазин портативных
+                                электростанций.
+                            </Typography.Text>
+                            <Typography.Link
+                                href="https://pro134.store"
+                                css={MarginCss}
+                                target="_blank"
+                            >PRO134.store</Typography.Link>
+
+                            <Typography.Text css={ListTitleCss}>Использованные технологии: </Typography.Text>
+                            <List theme={theme}>
+                                <li><Typography.Text>React</Typography.Text></li>
+                                <li><Typography.Text>Typescript</Typography.Text></li>
+                                <li><Typography.Text>ExpressJs</Typography.Text></li>
+                                <li><Typography.Text>Docker</Typography.Text></li>
+                                <li><Typography.Text>PostgreSQL</Typography.Text></li>
+                                <li><Typography.Text>Nginx</Typography.Text></li>
+                            </List>
+                        </>
+                    )}
                 />
 
                 <WorkCard
@@ -80,7 +126,23 @@ export const CareerBlock = () => {
                     durationTime={'1 год'}
                     job={'Fullstack Developer'}
                     techsImageSources={[VueIcon, PhpIcon, DockerIcon, PostgresIcon, YiiIcon, MongoIcon]}
-                    renderDescription={() => <Typography.Paragraph>Тут будет описание</Typography.Paragraph>}
+                    renderDescription={() => (
+                        <>
+                            <Typography.Text css={BoldCss}>SaasCredit Group</Typography.Text>
+                            <Typography.Text>
+                                Был нанят в SaasCredit Group в качестве Junior Fullstack разработчика.
+                            </Typography.Text>
+                            <Typography.Text css={ListTitleCss}>Использованные технологии: </Typography.Text>
+                            <List theme={theme}>
+                                <li><Typography.Text>Vue</Typography.Text></li>
+                                <li><Typography.Text>PHP</Typography.Text></li>
+                                <li><Typography.Text>yii2</Typography.Text></li>
+                                <li><Typography.Text>Docker</Typography.Text></li>
+                                <li><Typography.Text>PostgreSQL</Typography.Text></li>
+                                <li><Typography.Text>MongoDB</Typography.Text></li>
+                            </List>
+                        </>
+                    )}
                 />
 
                 <WorkCard
@@ -89,7 +151,23 @@ export const CareerBlock = () => {
                     durationTime={'4 мес'}
                     job={'Стажер'}
                     techsImageSources={[JavaScriptIcon, PhpIcon, DockerIcon, YiiIcon]}
-                    renderDescription={() => <Typography.Paragraph>Тут будет описание</Typography.Paragraph>}
+                    renderDescription={() => (
+                        <>
+                            <Typography.Text css={BoldCss}>SaasCredit Group</Typography.Text>
+                            <Typography.Text>
+                                Был нанят в SaasCredit Group в качестве стажера.
+                            </Typography.Text>
+                            <Typography.Text css={ListTitleCss}>Использованные технологии: </Typography.Text>
+                            <List theme={theme}>
+                                <li><Typography.Text>Vue</Typography.Text></li>
+                                <li><Typography.Text>PHP</Typography.Text></li>
+                                <li><Typography.Text>yii2</Typography.Text></li>
+                                <li><Typography.Text>Docker</Typography.Text></li>
+                                <li><Typography.Text>PostgreSQL</Typography.Text></li>
+                                <li><Typography.Text>MongoDB</Typography.Text></li>
+                            </List>
+                        </>
+                    )}
                 />
             </CareerContainer>
         </>

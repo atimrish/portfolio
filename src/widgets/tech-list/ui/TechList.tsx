@@ -19,6 +19,11 @@ const Container = styled.div`
     gap: clamp(21px, 6.5625vw, 52px);
     flex-wrap: wrap;
     justify-content: center;
+    padding: 50px 0;
+
+    @media screen and (max-width: 560px) {
+        padding: 0;
+    }
 `
 
 export const TechList = () => {

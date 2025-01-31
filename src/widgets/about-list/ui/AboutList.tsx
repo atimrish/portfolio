@@ -7,10 +7,12 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 200px 0;
     
     @media screen and (max-width: 560px) {
         flex-direction: column;
         gap: 60px;
+        padding: 0;
     }
 `
 
