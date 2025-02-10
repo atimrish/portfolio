@@ -1,8 +1,6 @@
 import {Typography} from "@src/shared/ui/typography";
-import {SearchInput} from "@src/shared/ui/search-input";
 import styled, {css} from "styled-components";
 import {ProjectCard} from "@src/widgets/project-card";
-import {useState} from "react";
 
 import ReactImage from '@src/shared/ui/assets/images/techs/react.png'
 import ReduxImage from '@src/shared/ui/assets/images/techs/redux.png'
@@ -12,7 +10,10 @@ import JSImage from '@src/shared/ui/assets/images/techs/javascript.png'
 import TSImage from '@src/shared/ui/assets/images/techs/typescript.png'
 import MongoImage from '@src/shared/ui/assets/images/techs/mongo.png'
 import NuxtImage from '@src/shared/ui/assets/images/techs/nuxt.png'
+import StorybookImage from '@src/shared/ui/assets/images/techs/storybook.png'
+import WebpackImage from '@src/shared/ui/assets/images/techs/webpack.png'
 
+import GanttFlow from '@src/shared/ui/assets/images/projects/gantt-flow.png'
 import Crystals from '@src/shared/ui/assets/images/projects/crystals.png'
 import Hydra from '@src/shared/ui/assets/images/projects/hydra.png'
 import Wordle from '@src/shared/ui/assets/images/projects/wordle.png'
@@ -55,6 +56,27 @@ export const ProjectBlock = () => {
 
             <ProjectList>
                 <ProjectCard
+                    heading={'Gantt Flow'}
+                    description={() => (
+                        <>
+                            <Typography.Paragraph>Таск-менеджер в виде диаграмм Ганта</Typography.Paragraph>
+                            <Typography.Text css={TextCss}>Использованные технологии:</Typography.Text>
+                            <List theme={theme}>
+                                <li><Typography.Text>React</Typography.Text></li>
+                                <li><Typography.Text>MobX</Typography.Text></li>
+                                <li><Typography.Text>React-Hook-Form</Typography.Text></li>
+                                <li><Typography.Text>Typescript</Typography.Text></li>
+                                <li><Typography.Text>Webpack</Typography.Text></li>
+                                <li><Typography.Text>Storybook</Typography.Text></li>
+                            </List>
+                        </>
+                    )}
+                    techImageSources={[ReactImage, TSImage, StorybookImage, WebpackImage]}
+                    projectCover={GanttFlow}
+                    githubLink={'https://github.com/atimrish/gantt-flow'}
+                    previewLink={'https://atimrish.github.io/gantt-flow'}
+                />
+                <ProjectCard
                     heading={'Wordle'}
                     description={() => (
                         <>
@@ -68,7 +90,7 @@ export const ProjectBlock = () => {
                             </List>
                         </>
                     )}
-                    techImageSources={[ReactImage, ReduxImage, TSImage]}
+                    techImageSources={[ReactImage, ReduxImage, TSImage, WebpackImage]}
                     projectCover={Wordle}
                     githubLink={'https://github.com/atimrish/wordle'}
                     previewLink={'https://atimrish.github.io/wordle'}
@@ -88,7 +110,7 @@ export const ProjectBlock = () => {
                             </List>
                         </>
                     )}
-                    techImageSources={[ReactImage, ReduxImage, TSImage]}
+                    techImageSources={[ReactImage, ReduxImage, TSImage, WebpackImage]}
                     projectCover={Game2048}
                     githubLink={'https://github.com/atimrish/2048'}
                     previewLink={'https://atimrish.github.io/2048'}
@@ -147,13 +169,6 @@ export const ProjectBlock = () => {
                     techImageSources={[NuxtImage, MongoImage]}
                     projectCover={Greenery}
                     githubLink={'https://github.com/atimrish/Greenery'}
-                />
-                <ProjectCard
-                    heading={'Queline'}
-                    description={'Тематический видеохостинг по играм.'}
-                    techImageSources={[ReactImage]}
-                    projectCover={ReactImage}
-                    githubLink={'https://github.com/atimrish/Queline'}
                 />
             </ProjectList>
         </>
