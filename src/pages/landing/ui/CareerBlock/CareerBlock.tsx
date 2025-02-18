@@ -10,7 +10,6 @@ import VueIcon from "@src/shared/ui/assets/images/techs/vue.png";
 import PhpIcon from "@src/shared/ui/assets/images/techs/php.png";
 import YiiIcon from "@src/shared/ui/assets/images/techs/yii.png";
 import MongoIcon from "@src/shared/ui/assets/images/techs/mongo.png";
-import JavaScriptIcon from "@src/shared/ui/assets/images/techs/javascript.png";
 import {useTheme} from "@src/app/providers/ThemeProvider";
 import styled, {css} from "styled-components";
 import {Theme} from "@src/app/providers/themes";
@@ -125,7 +124,7 @@ export const CareerBlock = () => {
                     month={'август'}
                     durationTime={'1 год'}
                     job={'Fullstack Developer'}
-                    techsImageSources={[VueIcon, PhpIcon, DockerIcon, PostgresIcon, YiiIcon, MongoIcon]}
+                    techsImageSources={[ReactIcon, VueIcon, PhpIcon, DockerIcon, PostgresIcon, YiiIcon, MongoIcon]}
                     renderDescription={() => (
                         <>
                             <Typography.Text css={BoldCss}>SaasCredit Group</Typography.Text>
@@ -134,6 +133,7 @@ export const CareerBlock = () => {
                             </Typography.Text>
                             <Typography.Text css={ListTitleCss}>Использованные технологии: </Typography.Text>
                             <List theme={theme}>
+                                <li><Typography.Text>React</Typography.Text></li>
                                 <li><Typography.Text>Vue</Typography.Text></li>
                                 <li><Typography.Text>PHP</Typography.Text></li>
                                 <li><Typography.Text>yii2</Typography.Text></li>
@@ -147,18 +147,19 @@ export const CareerBlock = () => {
 
                 <WorkCard
                     year={2022}
-                    month={'сентябрь'}
-                    durationTime={'4 мес'}
+                    month={'июнь'}
+                    durationTime={'1 год, 2 месяца'}
                     job={'Стажер'}
-                    techsImageSources={[JavaScriptIcon, PhpIcon, DockerIcon, YiiIcon]}
+                    techsImageSources={[ReactIcon, VueIcon, PhpIcon, DockerIcon, YiiIcon]}
                     renderDescription={() => (
                         <>
                             <Typography.Text css={BoldCss}>SaasCredit Group</Typography.Text>
                             <Typography.Text>
-                                Был нанят в SaasCredit Group в качестве стажера.
+                                Был нанят в DosLab в качестве стажера.
                             </Typography.Text>
                             <Typography.Text css={ListTitleCss}>Использованные технологии: </Typography.Text>
                             <List theme={theme}>
+                                <li><Typography.Text>React</Typography.Text></li>
                                 <li><Typography.Text>Vue</Typography.Text></li>
                                 <li><Typography.Text>PHP</Typography.Text></li>
                                 <li><Typography.Text>yii2</Typography.Text></li>
