@@ -90,39 +90,9 @@ export const CareerBlock = () => {
 
             <CareerContainer>
                 <WorkCard
-                    year={2024}
-                    month={'август'}
-                    job={'Freelance'}
-                    techsImageSources={[ReactIcon, TypeScriptIcon, ExpressIcon, NodeJSIcon, DockerIcon, PostgresIcon]}
-                    renderDescription={() => (
-                        <>
-                            <Typography.Text>
-                                Полностью создал сайт от разработки до деплоя - онлайн магазин портативных
-                                электростанций.
-                            </Typography.Text>
-                            <Typography.Link
-                                href="https://pro134.store"
-                                css={MarginCss}
-                                target="_blank"
-                            >PRO134.store</Typography.Link>
-
-                            <Typography.Text css={ListTitleCss}>Использованные технологии: </Typography.Text>
-                            <List theme={theme}>
-                                <li><Typography.Text>React</Typography.Text></li>
-                                <li><Typography.Text>Typescript</Typography.Text></li>
-                                <li><Typography.Text>ExpressJs</Typography.Text></li>
-                                <li><Typography.Text>Docker</Typography.Text></li>
-                                <li><Typography.Text>PostgreSQL</Typography.Text></li>
-                                <li><Typography.Text>Nginx</Typography.Text></li>
-                            </List>
-                        </>
-                    )}
-                />
-
-                <WorkCard
                     year={2023}
                     month={'август'}
-                    durationTime={'1 год'}
+                    durationTime={'1 год, 6 месяцев'}
                     job={'Fullstack Developer'}
                     techsImageSources={[ReactIcon, VueIcon, PhpIcon, DockerIcon, PostgresIcon, YiiIcon, MongoIcon]}
                     renderDescription={() => (
@@ -153,7 +123,7 @@ export const CareerBlock = () => {
                     techsImageSources={[ReactIcon, VueIcon, PhpIcon, DockerIcon, YiiIcon]}
                     renderDescription={() => (
                         <>
-                            <Typography.Text css={BoldCss}>SaasCredit Group</Typography.Text>
+                            <Typography.Text css={BoldCss}>DosLab</Typography.Text>
                             <Typography.Text>
                                 Был нанят в DosLab в качестве стажера.
                             </Typography.Text>
