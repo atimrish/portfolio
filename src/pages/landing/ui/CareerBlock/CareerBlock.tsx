@@ -1,18 +1,16 @@
-import {Typography} from "@src/shared/ui/typography";
-import {WorkCard} from "@src/widgets/work-card";
-import ReactIcon from "@src/shared/ui/assets/images/techs/react.png";
-import TypeScriptIcon from "@src/shared/ui/assets/images/techs/typescript.png";
-import ExpressIcon from "@src/shared/ui/assets/images/techs/express.png";
-import NodeJSIcon from "@src/shared/ui/assets/images/techs/nodejs.png";
+import { useTheme } from "@src/app/providers/ThemeProvider";
+import { Theme } from "@src/app/providers/themes";
 import DockerIcon from "@src/shared/ui/assets/images/techs/docker.png";
-import PostgresIcon from "@src/shared/ui/assets/images/techs/postgres.png";
-import VueIcon from "@src/shared/ui/assets/images/techs/vue.png";
-import PhpIcon from "@src/shared/ui/assets/images/techs/php.png";
-import YiiIcon from "@src/shared/ui/assets/images/techs/yii.png";
 import MongoIcon from "@src/shared/ui/assets/images/techs/mongo.png";
-import {useTheme} from "@src/app/providers/ThemeProvider";
-import styled, {css} from "styled-components";
-import {Theme} from "@src/app/providers/themes";
+import PhpIcon from "@src/shared/ui/assets/images/techs/php.png";
+import PostgresIcon from "@src/shared/ui/assets/images/techs/postgres.png";
+import ReactIcon from "@src/shared/ui/assets/images/techs/react.png";
+import VueIcon from "@src/shared/ui/assets/images/techs/vue.png";
+import YiiIcon from "@src/shared/ui/assets/images/techs/yii.png";
+import ReduxIcon from "@src/shared/ui/assets/images/techs/redux.png"
+import { Typography } from "@src/shared/ui/typography";
+import { WorkCard } from "@src/widgets/work-card";
+import styled, { css } from "styled-components";
 
 const CareerWayStyles = css`
     font-weight: 500;
@@ -91,8 +89,8 @@ export const CareerBlock = () => {
             <CareerContainer>
                 <WorkCard
                     year={2023}
-                    month={'август'}
-                    durationTime={'1 год, 6 месяцев'}
+                    month={'июнь'}
+                    durationTime={'1 год, 10 месяцев'}
                     job={'Fullstack Developer'}
                     techsImageSources={[ReactIcon, VueIcon, PhpIcon, DockerIcon, PostgresIcon, YiiIcon, MongoIcon]}
                     renderDescription={() => (
@@ -117,10 +115,10 @@ export const CareerBlock = () => {
 
                 <WorkCard
                     year={2022}
-                    month={'июнь'}
+                    month={'март'}
                     durationTime={'1 год, 2 месяца'}
-                    job={'Стажер'}
-                    techsImageSources={[ReactIcon, VueIcon, PhpIcon, DockerIcon, YiiIcon]}
+                    job={'Frontend Developer'}
+                    techsImageSources={[ReactIcon, VueIcon, ReduxIcon]}
                     renderDescription={() => (
                         <>
                             <Typography.Text css={BoldCss}>DosLab</Typography.Text>
@@ -131,11 +129,8 @@ export const CareerBlock = () => {
                             <List theme={theme}>
                                 <li><Typography.Text>React</Typography.Text></li>
                                 <li><Typography.Text>Vue</Typography.Text></li>
-                                <li><Typography.Text>PHP</Typography.Text></li>
-                                <li><Typography.Text>yii2</Typography.Text></li>
-                                <li><Typography.Text>Docker</Typography.Text></li>
-                                <li><Typography.Text>PostgreSQL</Typography.Text></li>
-                                <li><Typography.Text>MongoDB</Typography.Text></li>
+                                <li><Typography.Text>Redux</Typography.Text></li>
+                                <li><Typography.Text>MobX</Typography.Text></li>
                             </List>
                         </>
                     )}
