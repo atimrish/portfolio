@@ -52,7 +52,7 @@ export const ContactList = () => {
                 <Tooltip text="Gmail">
                     <Typography.Link css={LinkStyles} href="mailto:strcty11@gmail.com">
                         <Image src={GmailImage} alt=""/>
-                        <Typography.Text css={TextStyles}>atimrish11@gmail.com</Typography.Text>
+                        <Typography.Text css={TextStyles}>strcty@gmail.com</Typography.Text>
                     </Typography.Link>
                 </Tooltip>
 
