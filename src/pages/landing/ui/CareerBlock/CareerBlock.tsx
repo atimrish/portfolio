@@ -91,13 +91,13 @@ export const CareerBlock = () => {
                     year={2023}
                     month={'июнь'}
                     durationTime={'1 год, 10 месяцев'}
-                    job={'Fullstack Developer'}
+                    job={'Frontend Developer'}
                     techsImageSources={[ReactIcon, VueIcon, PhpIcon, DockerIcon, PostgresIcon, YiiIcon, MongoIcon]}
                     renderDescription={() => (
                         <>
                             <Typography.Text css={BoldCss}>SaasCredit Group</Typography.Text>
                             <Typography.Text>
-                                Был нанят в SaasCredit Group в качестве Junior Fullstack разработчика.
+                                Был нанят в SaasCredit Group в качестве Middle Frontend разработчика.
                             </Typography.Text>
                             <Typography.Text css={ListTitleCss}>Использованные технологии: </Typography.Text>
                             <List theme={theme}>
@@ -123,7 +123,7 @@ export const CareerBlock = () => {
                         <>
                             <Typography.Text css={BoldCss}>DosLab</Typography.Text>
                             <Typography.Text>
-                                Был нанят в DosLab в качестве стажера.
+                                Был нанят в DosLab в качестве Junior Frontend разработчика.
                             </Typography.Text>
                             <Typography.Text css={ListTitleCss}>Использованные технологии: </Typography.Text>
                             <List theme={theme}>
